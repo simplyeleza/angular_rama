@@ -40,7 +40,7 @@ body {
 
 <div class="container main-content" ng-controller="MinMaxCtrl">
 
-	<form ng-submit="onSubmit()">
+	<form ng-submit="onSubmit(theForm.$valid)" name="theForm" novalidate="novalidate">
 		<div class="form-group" >
 			<label for="name" >Name</label >
 			<input type="text"
@@ -49,14 +49,49 @@ body {
 			       id="name" >
 		</div >
 
-		<div class="form-group" >
+		<div class="form-group" ng-class="
+
+          {'has-error':!theForm.email.$valid &&  ( !theForm.$pristine || theForm.$submitted) ,
+           'has-success':theForm.email.$valid &&  ( !theForm.$pristine || theForm.$submitted),
+
+    
+
+        }
+		">
 			<label for="email" >Email</label >
 			<input type="email"
+			       name="email" 
 			       class="form-control"
 			       ng-model="formModel.email"
 			       id="email" 
                    required="required"
 			       >
+      <p class="help-block" ng-show="theForm.email.$error.required &&  ( !theForm.$pristine || theForm.$submitted)">   
+       
+       This Field is required
+
+      </p>
+
+
+      <p class="help-block" ng-show="theForm.email.$error.email &&  ( !theForm.$pristine || theForm.$submitted)">   
+       
+       Please enter a valid email address
+
+      </p>
+       
+
+       <!--
+        <pre> Validation {{ theForm.email.$error | json }}</pre>
+	   <pre> Field Valid?  {{ theForm.email.$valid }}</pre>
+
+	   <pre> Form Pristine?  {{ theForm.$pristine  }}</pre>
+
+
+	   <pre> Form Submitted?  {{ theForm.$submitted  }}</pre>
+
+	-->
+
+
 		</div >
 
 
@@ -114,7 +149,7 @@ body {
 	</form >
 
 
-	<pre>   {{  formModel | json }}   </pre>
+	<pre>   {{  theForm | json }}   </pre>
 
 </div >
 
@@ -127,9 +162,13 @@ app.controller('MinMaxCtrl',function($scope,$http){
 
 $scope.formModel={};
 
-$scope.onSubmit =function(){
-	console.log("Hey I am submitted!");
+$scope.onSubmit =function(valid){
+
+   if(valid){
+
+    console.log("Hey I am submitted!");
 	console.log($scope.formModel);
+
 
 	$http.post('https://minmax-server.herokuapp.com/register/',$scope.formModel).
 	then(function(data){
@@ -137,6 +176,18 @@ $scope.onSubmit =function(){
 	}).catch(function(data){
 		console.log("data not submitted ");
 	});
+
+   } else{
+
+   	console.log("Invalid Form!");
+
+   }
+
+
+
+	
+
+
 };
 
 });
