@@ -1,0 +1,217 @@
+<!DOCTYPE html >
+<html lang="en" ng-app="minmax">
+<head >
+	<title >register</title >
+	
+<!-- Latest compiled and minified CSS -->
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!--
+<link rel="stylesheet" href="bower_components/ladda/css/ladda-themed.scss" rel="stylesheet">  -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style type="text/css">
+	
+body {
+  padding-top: 50px;
+}
+.main-content {
+  padding: 40px 15px;
+}
+
+
+</style>
+
+
+</head >
+
+<body >
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<div class="container" >
+		<div class="navbar-header" >
+			<a class="navbar-brand"
+			   href="/" >Controllers
+			</a >
+		</div >
+		,
+	</div >
+</nav >
+
+<div class="container main-content" ng-controller="MinMaxCtrl">
+
+	<form ng-submit="onSubmit()"  novalidate="novalidate">
+		<div class="form-group" >
+			<label for="name" >Name</label >
+			<input type="text"
+			       class="form-control"
+			       ng-model="formModel.name"
+			       id="name"
+                   required="required"
+			        >
+		</div >
+
+		<div class="form-group" >
+			<label for="email" >Email</label >
+			<input type="email"
+			       class="form-control"
+			       ng-model="formModel.email"
+			       id="email" 
+                   required="required" >
+		</div >
+
+
+
+		<div class="form-group" >
+			<label for="username" >Username</label >
+			<input type="text"
+			       class="form-control"
+			       ng-model="formModel.username"
+			       ng-pattern="/^[A-Za-z0-9_]{1,15}$/"
+			       ng-minlength="7"
+			       ng-pattern-err-type="badUsername"
+			       id="username" 
+                   required="required"
+			       >
+		</div >
+
+
+		<div class="form-group" >
+			<label for="age" >Age</label >
+			<input type="number"
+			       class="form-control"
+			       ng-model="formModel.age"
+			       min="18"
+			       max="64" 
+			       id="age"
+			       ng-min-err-type="tooYoung"
+			       ng-max-err-type="tooOld" 
+                   required="required"
+
+			       >
+		</div >
+
+
+		<div class="form-group" >
+			<label for="sex" >Sex</label >
+			<select name="sex"
+			         id="sex"
+			         class="form-control" 
+			         ng-model="formModel.sex" 
+			         required="required"
+			         >
+
+			<option value=""> Please Choose </option>
+			<option value="male">Male </option>
+			<option value="female">Female</option>
+
+			</select>
+			
+		</div >
+
+
+
+
+		<div class="form-group" >
+			<label for="password" >Password</label >
+			<input type="password"
+			       class="form-control"
+			       ng-model="formModel.password"
+			       id="password"
+			       required="required"
+			       ng-minlength="10">
+		</div >
+
+		<div class="form-group" >
+			<button class="btn btn-primary"
+
+			     ladda="true"
+			     data-style="expand-right" 
+			    type="submit">Register
+			</button >
+		</div >
+
+	</form >
+
+
+	<pre>   {{  formModel | json }}   </pre>
+
+</div >
+
+
+
+
+
+<script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+
+
+<!--
+<script src="bower_components/ladda/dist/ladda.min.js" ></script>
+<script src="bower_components/ladda/dist/spin.min.js" ></script>
+<script src="bower_components/angular-ladda/dist/angular-ladda.min.js" ></script>
+
+-->
+
+<script type="text/javascript">
+	
+
+var app = angular.module('minmax',[
+'jcs-autoValidate'
+]);
+
+
+app.run(function (defaultErrorMessageResolver) {
+		defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+			errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';
+			errorMessages['tooOld'] = 'You must be max {0} years old to use this site';
+			errorMessages['badUsername'] = 'Username can only contain numbers and letters and _';
+		});
+	}
+);
+
+
+app.controller('MinMaxCtrl',function($scope,$http){
+
+$scope.formModel={};
+
+
+$scope.submitting=false;
+
+$scope.onSubmit =function(){
+    
+    $scope.submitting=false;
+   
+
+    console.log("Hey I am submitted!");
+	console.log($scope.formModel);
+
+
+	$http.post('https://minmax-server.herokuapp.com/register/',$scope.formModel).
+	then(function(data){
+		console.log(":)")
+	}).catch(function(data){
+		console.log("data not submitted ");
+	});
+
+ 
+
+};
+
+});
+
+
+
+
+
+
+</script>
+
+</body >
+</html >
