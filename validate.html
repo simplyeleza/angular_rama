@@ -9,9 +9,10 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!--
-<link rel="stylesheet" href="bower_components/ladda/css/ladda-themed.scss" rel="stylesheet">  -->
 
+ 
+
+<link rel="stylesheet" href="bower_components/ladda/dist/ladda-themeless.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
@@ -19,8 +20,10 @@
 	
 body {
   padding-top: 50px;
- 
+
 }
+
+
 .main-content {
   padding: 40px 15px;
 }
@@ -133,9 +136,13 @@ body {
 		<div class="form-group" >
 			<button class="btn btn-primary"
 
-			     ladda="true"
+			     ladda="submitting"
 			     data-style="expand-right" 
-			    type="submit">Register
+			    type="submit">
+               <span ng-show="submitting"> Registering  </span> 
+               <span ng-show="!submitting"> Register  </span> 
+               
+			    
 			</button >
 		</div >
 
@@ -153,18 +160,21 @@ body {
 <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
 
 
-<!--
-<script src="bower_components/ladda/dist/ladda.min.js" ></script>
-<script src="bower_components/ladda/dist/spin.min.js" ></script>
-<script src="bower_components/angular-ladda/dist/angular-ladda.min.js" ></script>
 
--->
+
+
+<script src="bower_components/ladda/dist/spin.min.js"></script>
+<script src="bower_components/ladda/dist/ladda.min.js"></script>
+<script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+
+
 
 <script type="text/javascript">
 	
 
 var app = angular.module('minmax',[
-'jcs-autoValidate'
+'jcs-autoValidate',
+'angular-ladda'
 ]);
 
 
@@ -187,7 +197,7 @@ $scope.submitting=false;
 
 $scope.onSubmit =function(){
     
-    $scope.submitting=false;
+    $scope.submitting=true;
    
 
     console.log("Hey I am submitted!");
@@ -196,9 +206,11 @@ $scope.onSubmit =function(){
 
 	$http.post('https://minmax-server.herokuapp.com/register/',$scope.formModel).
 	then(function(data){
-		console.log(":)")
+		console.log(":)");
+		$scope.submitting=false;
 	}).catch(function(data){
 		console.log("data not submitted ");
+		$scope.submitting=false;
 	});
 
  
