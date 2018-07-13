@@ -1,33 +1,26 @@
 <!DOCTYPE html >
 <html lang="en" ng-app="minmax">
 <head >
-	<title >register</title >
+	<title >Validate</title >
 	
 <!-- Latest compiled and minified CSS -->
 
-
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
- 
 
 <link rel="stylesheet" href="bower_components/ladda/dist/ladda-themeless.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-<style type="text/css">
-	
+<style type="text/css">	
 body {
   padding-top: 50px;
 
 }
 
-
 .main-content {
   padding: 40px 15px;
 }
-
 
 </style>
 
@@ -45,7 +38,7 @@ body {
 			   href="/" >Controllers
 			</a >
 		</div >
-		,
+		
 	</div >
 </nav >
 
@@ -82,8 +75,7 @@ body {
 			       ng-minlength="7"
 			       ng-pattern-err-type="badUsername"
 			       id="username" 
-                   required="required"
-			       >
+                   required="required">			       
 		</div >
 
 
@@ -119,9 +111,6 @@ body {
 			</select>
 			
 		</div >
-
-
-
 
 		<div class="form-group" >
 			<label for="password" >Password</label >
@@ -218,10 +207,6 @@ $scope.onSubmit =function(){
 };
 
 });
-
-
-
-
 
 
 </script>
