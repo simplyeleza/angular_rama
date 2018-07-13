@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Roboto+Slab:100,300,400,700');
+
+body{
+
+font-family: "Roboto Slab",sans-serif;
+font-weight: 300;
+font-size: 2em;
+position: relative;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: "Open Sans",sans-serif;
+font-weight: 100;
+margin: 0;
+}
+
+.page{
+	padding: 50px 0;
+
+}
+.page h2{
+text-align: center;
+margin-bottom: 30px;
+
+}
+
+
+#staff img{
+	border-radius:100px;
+}
+
+img{
+	max-width: 150px;
+}
+
+/** Header Navigation  **/
+header .navbar{
+	padding: 30px 0;
+}
+header .navbar-default{
+	background-color: transparent;
+	border: none;
+
+}
+header .navbar-default .navbar-nav a{
+	color: white;
+	padding: 5px 8px;
+}
+
+header .navbar-default .navbar-nav a:hover{
+color: #EEC856;
+}
+
+header .navbar-default .navbar-nav .active a{
+font-weight: 700;
+color: #EEC856;
+background: transparent;
+border-bottom: 4px solid #EEC856;
+text-shadow:none;
+}
+header .navbar-default .navbar-nav .active a:hover{
+	color: #E15D5F;
+	background: transparent;
+	text-shadow:none;
+}
+
+.navbar{
+	border-radius: 0;
+	border: 0px solid #3699db; 
+}
+
+
+/** NAVBAR BRAND  **/
+header .navbar-brand {
+	float: right;
+
+}
+
+header .navbar-brand h3{
+float: left;
+color:#EEC856; 
+font-weight: bold;
+font-size: 200%;
+
+
+
+}
+/** NAVBAR toggle  **/
+
+header .navbar-toggle{
+	background-color: #279182;
+}
+header .navbar-default .navbar-toggle .icon-bar{
+background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+header .navbar-collapse  {
+background-color: rgba(0,0,0,.5);
+}
+
+header .navbar-brand h3{
+float: left;
+color:#EEC856; 
+font-weight: bold;
+font-size: 100%;
+
+
+
+}
+
+}
+
+header .navbar-collapse{
+	
+}
+
+/** page -- Mission **/
+#mission{
+	background-color: #E4D29D;
+	background-image: linear-gradient(to bottom,#EEF08A,#819A2D);
+	border-top: 20px solid rgba(238,200,86,.5);
+}
+
+/** page -- Services **/
+.services{
+	margin: 20px 0;
+	text-align: center;
+
+}
+.service img{
+border-radius:70px;
+margin: 0 auto;
+margin-bottom: 5px;
+
+}
+#services h3{
+margin-bottom: 20px;
+}
+
+
+@media only screen and(min-width:450px) and (max-width: 768px) {
+
+	#services .row .service p{
+		padding: 0 20%;
+		color: yellow;
+		
+	}
+}
+
+/** page -- Staff **/
+#staff{
+	background-color: #E4D29D;
+	background-image: linear-gradient(to bottom,#E4D29D,#CDAE50);
+
+}
+.staff h3{
+	font-weight: 600;
+	font-size: 1.2em;
+	color: #6F4E36;
+	padding-bottom: 5px;
+
+}
+.staff p{
+	font-size: 0.8em;
+}
+
+.staff img{
+	width: 100%;
+}
+
+/** page -- testimonials **/
+
+#testimonials{
+	padding: 10;
+}
+#testimonials blockquote {
+	background-color: rgba(255,255,255,.6);
+	margin: 0;
+	border-left: 1px solid black;
+	min-height: 500px;
+	position: relative;
+
+}
+
+
+#testimonials blockquote .quote{
+	background-color: rgba(255,255,255,.6);
+	padding: 20px 5%;
+	position: relative;
+	bottom: 0;
+	width: 95%;
+	font-weight: 400;
+	border-radius: 0 50px 0 0;
+}
+
+#testimonials blockquote .quote {
+	background-color: rgba(239,240,196,.9);
+}
+
+#testimonials .customer{
+	color: #E15D5F;
+
+}
+
+
+
+/**
+#testimonials #ashley{
+	background: url(../images/staff1.jpg);
+	background-size: cover;
+	background-repeat: none;
+}
+
+**/
+
+#testimonials .quote .intro::after{
+	content: '...';
+}
+
+#testimonials .quote:hover .intro::after{
+	content: '';
+}
+
+/** nav-- inbody **/
+
+header .inbody{
+	background-color: rgba(104,73,49,.9);
+}
+
+header #kichwa{
+background-color: black;
+opacity: 0.8;
+/* background-color: rgba(104,73,49,.9); */
+padding-top: 10;
+padding-bottom: 10;	
+}
+
+/** 
+element{
+	transition: all .5s ease-out;
+	} 
+
+**/
+
+
+/** FOOTER NAVIGATION **/
+
+footer {
+	background: #586D74;
+	color: white;
+	font-size: .8em;
+	padding: 20px 0 40px 0;
+}
+footer a{
+	color: #E0E6AE;
+}
+footer a:hover{
+	color: #EEC856 !important ;
+}
+.phone{
+	
+}
+
+/** CAROUSEL fade **/
+.carousel.fade{
+	opacity: 1;
+}
+.carousel.fade .item{
+transition:opacity ease-out .7s;
+left: 0;
+opacity: 0;
+top: 0;
+position: absolute;
+width: 100%;
+display: block;
+}
+.carousel.fade .item:first-child {
+	top: auto;
+	opacity: 1;
+	position: relative;
+
+}
+.carousel.fade .item.active {
+	opacity: 1;
+}
+
+#featured .item{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}

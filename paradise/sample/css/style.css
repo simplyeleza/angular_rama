@@ -1,0 +1,11 @@
+.bgimage{
+	background-image: url('../images/back.JPG');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+
+}
+
+ #top{
+	color: white;
+}
