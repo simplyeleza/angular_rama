@@ -5,24 +5,40 @@
 var myApp = angular.module('minmax', []);
 
 
-myApp.controller('PersonsController',function($scope){
+
+
+
+
+myApp.controller('PersonDetailController',function($scope,ContactService){
+
+$scope.selectedPerson= ContactService.selectedPerson;
+
+$scope.contacts =ContactService;
+
+});
+
+
+myApp.controller('PersonListController',function($scope,ContactService){
 
 $scope.search = "";
 
 $scope.order ="email";
 
+$scope.contacts =ContactService;
+//$scope.persons =ContactService.persons;
+$scope.selectedPerson= ContactService.selectedPerson;
 
 //$scope.selectedIndex =null;
-$scope.selectedPerson= null;
+//$rootScope.selectedPerson= null;
 
-
-$scope.selectPerson =function(person){
+/**
+$scope.selectPerson =function(person,index){
 
 //$scope.selectedIndex= index;
 $scope.selectedPerson= person;
 
 
-};
+}; **/
 
 
 $scope.sensitiveSearch =function(person){
@@ -36,7 +52,25 @@ $scope.sensitiveSearch =function(person){
 
 };
 
-$scope.persons = [
+
+
+
+
+});
+
+   
+
+
+app.service('ContactService',function(){
+
+return{
+
+'addPerson':function(person){
+this.persons.push(person)
+},
+
+'selectedPerson'= null,
+'persons' : [
 
 {
 			"name": "Gregory Huffman",
@@ -943,10 +977,13 @@ $scope.persons = [
 
 ]
 
-
-
-
-
+};
 
 
 });
+
+
+
+
+
+

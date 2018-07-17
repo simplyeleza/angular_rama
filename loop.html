@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="en" ng-app="minmax">
 <head >
-	<title >LOOPING</title >
+	<title >CONTACTS</title >
 	
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
@@ -39,11 +39,15 @@ body {
 
 
 
-<div class="container main-content" ng-controller="PersonsController">
+<div class="container main-content" >
 
 	<div class="row" >
-		<div class="col-md-12" >
-			<form class="form-inline well well-sm" >
+		<div class="col-md-8" 
+		      ng-controller="PersonListController">
+
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-inline well well-sm" >
 				<span class="glyphicon glyphicon-search" ></span >
 
 				<div class="form-group" >
@@ -72,16 +76,12 @@ body {
 
 		
 			</form >
-		</div >
-	</div >
-
-	<div class="row">
-
-      <div class="col-md-8">
-      	 <table class="table table-bordered">
 
 
-  	<tr>
+	 <table class="table table-bordered">
+
+
+  	  <tr>
   		<th>#</th>
   		<th>Name
   			<span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
@@ -97,11 +97,11 @@ body {
   	</tr>
 
 
-  	<tr ng-repeat="person in filteredPersons = (  persons | filter:sensitiveSearch | orderBy:order ) "
+  	<tr ng-repeat="person in filteredPersons = (  contacts.persons | filter:sensitiveSearch | orderBy:order ) "
 
-  	ng-style="{'background-color': person.email == selectedPerson.email ? 'lightgray' : ''
+  	ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
      }"
-    ng-click="selectPerson(person)"> 
+    ng-click="contacts.selectedPerson = person"> 
        <td>{{$index}}</td>
        <td>{{person.name}}</td>
        <td>{{person.email}}</td>
@@ -138,10 +138,16 @@ body {
   </table>
 
 
-      </div>
+				</div>
+			</div>
 
 
-      <div class="col-md-4">
+			
+		</div >
+
+
+		      <div class="col-md-4"
+           ng-controller="PersonDetailController">
 
 
         <div class="panel panel-default">
@@ -151,19 +157,19 @@ body {
                
                <dl >
 						<dt >Name</dt >
-						<dd >{{selectedPerson.name}}</dd >
+						<dd >{{contacts.selectedPerson.name}}</dd >
 						<dt >Email</dt >
-						<dd >{{selectedPerson.email}}</dd >
+						<dd >{{contacts.selectedPerson.email}}</dd >
 						<dt >Birthday</dt >
-						<dd >{{selectedPerson.birthdate | date:"longDate"}}</dd >
+						<dd >{{contacts.selectedPerson.birthdate | date:"longDate"}}</dd >
 						<dt >Phonenumber</dt >
-						<dd >{{selectedPerson.phonenumber}}</dd >
+						<dd >{{contacts.selectedPerson.phonenumber}}</dd >
 						<dt >Address</dt >
-						<dd >{{selectedPerson.address}}</dd >
+						<dd >{{contacts.selectedPerson.address}}</dd >
 						<dt >City</dt >
-						<dd >{{selectedPerson.city}}</dd >
+						<dd >{{contacts.selectedPerson.city}}</dd >
 						<dt >Country</dt >
-						<dd >{{selectedPerson.country}}</dd >
+						<dd >{{contacts.selectedPerson.country}}</dd >
 					</dl >
 
         	</div>
@@ -174,6 +180,22 @@ body {
       	<pre> {{  search }}</pre>
 
       </div>
+
+
+
+
+	</div >
+
+	<div class="row">
+
+      <div class="col-md-8">
+      
+
+
+      </div>
+
+
+
 		
 	</div>
 
