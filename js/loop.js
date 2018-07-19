@@ -61,15 +61,15 @@ $scope.sensitiveSearch =function(person){
    
 
 
-app.service('ContactService',function(){
+myApp.service('ContactService',function(){
 
 return{
 
 'addPerson':function(person){
-this.persons.push(person)
+this.persons.push(person);
 },
 
-'selectedPerson'= null,
+'selectedPerson': null,
 'persons' : [
 
 {
