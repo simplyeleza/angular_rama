@@ -78,7 +78,7 @@ body {
 			</form >
 
 
-	 <table class="table table-bordered">
+	 <table class="table table-bordered" infinite-scroll="loadMore()" infinite-scroll-distance="1">
 
 
   	  <tr>
@@ -97,7 +97,7 @@ body {
   	</tr>
 
 
-  	<tr ng-repeat="person in filteredPersons = (  contacts.persons | filter:sensitiveSearch | orderBy:order ) "
+  	<tr ng-repeat="person in contacts.persons "
 
   	ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
      }"
@@ -108,7 +108,7 @@ body {
        <td>{{person.birthdate | date:"" }}</td>
      </tr> 
 
-  	<tr ng-show="filteredPersons.length == 0">
+  	<tr ng-show="contacts.persons.length == 0">
      
      <td colspan="4" > 
         <div class="alert alert-info">
@@ -206,6 +206,11 @@ body {
 
 
 <script src="bower_components/angular/angular.min.js"></script>
+
+
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
 
 
 <script src="js/loop.js" ></script> 
