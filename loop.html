@@ -7,6 +7,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
 
 
+<link href="bower_components/ladda/dist/ladda-themeless.min.css"
+	      rel="stylesheet" >
+
+
+
+
+
 
 <style type="text/css">
 	
@@ -175,7 +182,126 @@ margin-top: 20px;
         	<div class="panel-heading">Details </div>
 
         	<div class="panel-body"> 
-               
+
+                  <form class="form-horizontal"
+					      ng-submit="save()"
+					      novalidate >
+
+						<div class="form-group" >
+	<label class="col-sm-2 control-label" >Name</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       class="form-control"
+		       name="name"
+		       ng-model="contacts.selectedPerson.name"
+		       required />
+	</div >
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Email</label >
+	<div class="col-sm-10" >
+		<input type="email"
+		       name="email"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.email"
+		       required />
+	</div >
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Photo</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       class="form-control"
+		       name="photo"
+		       ng-model="contacts.selectedPerson.photo"
+				/>
+	</div >
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Sex</label >
+	<div class="col-sm-10" >
+
+		<select name="sex"
+		        class="form-control"
+		        ng-model="contacts.selectedPerson.sex"
+		        id="" >
+			<option value="M" >Male</option >
+			<option value="F" >Female</option >
+		</select >
+	</div >
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Birthday</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       name="bday"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.birthdate "
+		       bs-datepicker
+				/>
+	</div >
+
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Phone</label >
+	<div class="col-sm-10" >
+		<input type="tel"
+		       name="phone"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.phonenumber"
+				/>
+	</div >
+
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Address</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       name="address"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.address"
+				/>
+	</div >
+
+</div >
+
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >City</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       name="city"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.city"
+				/>
+	</div >
+
+</div >
+<div class="form-group" >
+	<label class="col-sm-2 control-label" >Country</label >
+	<div class="col-sm-10" >
+		<input type="text"
+		       name="country"
+		       class="form-control"
+		       ng-model="contacts.selectedPerson.country"
+				/>
+	</div >
+
+</div >
+<div class="buttons" >
+	<button class="btn btn-primary btn-block"
+	        ladda="contacts.isSaving"
+	        type="submit" >Save
+	</button >
+</div >
+
+					
+
+					</form >
+
+
+
+
+               <!--
                <dl >
 						<dt >Name</dt >
 						<dd >{{contacts.selectedPerson.name}}</dd >
@@ -191,7 +317,11 @@ margin-top: 20px;
 						<dd >{{contacts.selectedPerson.city}}</dd >
 						<dt >Country</dt >
 						<dd >{{contacts.selectedPerson.country}}</dd >
-					</dl >
+					</dl >  -->
+
+
+
+
 
         	</div>
         		
@@ -237,6 +367,16 @@ margin-top: 20px;
 
 
 <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+
+
+
+
+<script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+
+<script src="bower_components/ladda/dist/ladda.min.js"></script>
+
+<script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+
 
 
 

@@ -5,15 +5,21 @@
 var myApp = angular.module('minmax', [
 'ngResource',
 'infinite-scroll',
-'angularSpinner'
+'angularSpinner',
+'jcs-autoValidate',
+'angular-ladda'
 
 ]);
 
-myApp.config(function($httpProvider,$resourceProvider){
+myApp.config(function($httpProvider,$resourceProvider,laddaProvider){
 
 $httpProvider.defaults.headers.common['Authorization'] ='Token 19402a670db4050e0c43a3a12a40213ad818215f';
 
 $resourceProvider.defaults.stripTrailingSlashes =false;
+laddaProvider.setOption({
+style:'expand-right'
+
+   });
 
 });
 
