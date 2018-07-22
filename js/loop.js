@@ -57,6 +57,15 @@ $scope.contacts.updateContact($scope.contacts.selectedPerson);
 
 }
 
+
+
+$scope.remove = function(){
+
+$scope.contacts.removeContact($scope.contacts.selectedPerson);
+
+}
+
+
 });
 
 
@@ -212,8 +221,22 @@ self.loadContacts();
 		self.isSaving =false;
 	});
 
-}
+},
 
+
+
+'removeContact': function(person){
+
+	console.log("Contact has been removed");
+	self.isDelete=true;
+	person.$remove().then(function(){
+		self.isDeleting =false;
+		var index=self.persons.indexOf(person);
+		self.persons.splice(index,1);
+		self.selectedPerson=null;
+	});
+
+},
 
 
 
