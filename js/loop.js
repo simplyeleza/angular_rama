@@ -7,9 +7,11 @@ var myApp = angular.module('minmax', [
 'infinite-scroll',
 'angularSpinner',
 'jcs-autoValidate',
-'angular-ladda'
+'angular-ladda',
+'mgcrea.ngStrap'
 
 ]);
+
 
 myApp.config(function($httpProvider,$resourceProvider,laddaProvider){
 
@@ -69,7 +71,7 @@ $scope.contacts.removeContact($scope.contacts.selectedPerson);
 });
 
 
-myApp.controller('PersonListController',function($scope,ContactService){
+myApp.controller('PersonListController',function($scope,$modal,ContactService){
 
 $scope.search = "";
 
@@ -104,6 +106,20 @@ $scope.contacts.loadMore();
 
 };
 
+
+
+$scope.showCreateModal = function() {
+
+$scope.createModal = $modal ({
+
+scope:$scope,
+template:'templates/modal.create.tpl.html',
+show:true
+
+
+});
+
+};
 
 
 $scope.$watch('search',function(newVal,oldVal){
