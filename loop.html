@@ -18,6 +18,21 @@ body {
 }
 
 
+.spinner{
+position: relative;
+width: 50px;
+height: 50px;
+margin: 0 auto;
+padding: 40px 0;
+
+
+}
+
+.spinner p{
+margin-top: 20px;
+}
+
+
 </style>
 </head >
 
@@ -138,6 +153,14 @@ body {
   </table>
 
 
+
+    <div class="spinner"   
+         ng-show="contacts.isLoading">
+    <span us-spinner="{radius:8, width:5, length: 3,lines:9 }"></span>
+
+    <p>Loading .....</p>
+    </div>
+
 				</div>
 			</div>
 
@@ -211,6 +234,14 @@ body {
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 
 <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+
+<script src="bower_components/spin.js/spin.js"></script>
+
+
+<script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+
+
+
 
 
 <script src="js/loop.js" ></script> 
