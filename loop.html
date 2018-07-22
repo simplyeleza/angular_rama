@@ -123,23 +123,9 @@ margin-top: 20px;
        <td>{{person.birthdate | date:"" }}</td>
      </tr> 
 
-  	<tr ng-show="contacts.persons.length == 0">
-     
-     <td colspan="4" > 
-        <div class="alert alert-info">
-        	<p class="text-center">
-
-        	  No results found for search Term '{{ search }}' 
 
 
-        	</p>
-
-        </div>
-
-     </td>
-
-  	</tr>
-  		
+  	
 
 
   	</tr>
@@ -151,6 +137,18 @@ margin-top: 20px;
 
 
   </table>
+
+   <div ng-show="contacts.persons.length == 0 && !contacts.isLoading">         
+        <div class="alert alert-info">
+        	<p class="text-center">
+        	  No results found for search Term '{{ search }}' 
+        	</p>
+
+        </div>
+  	</div>
+  		
+
+
 
 
 
