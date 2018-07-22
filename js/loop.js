@@ -27,7 +27,13 @@ style:'expand-right'
 myApp.factory("Contact",function($resource){
 
 
-return $resource("https://api.codecraft.tv/samples/v1/contact/:id/");
+return $resource("https://api.codecraft.tv/samples/v1/contact/:id/",{id:'@id'},{
+
+update:{
+
+method:'PUT'	
+  }
+});
 
 
 });
@@ -42,6 +48,14 @@ myApp.controller('PersonDetailController',function($scope,ContactService){
 $scope.selectedPerson= ContactService.selectedPerson;
 
 $scope.contacts =ContactService;
+
+
+
+$scope.save = function(){
+
+$scope.contacts.updateContact($scope.contacts.selectedPerson);
+
+}
 
 });
 
@@ -126,6 +140,8 @@ this.persons.push(person);
 'page':1,
 'hasMore':true,
 'isLoading':false,
+'isSaving':false,
+
 'selectedPerson': null,
 'persons' : [],
 'search' :null,
@@ -159,7 +175,9 @@ this.persons.push(person);
      Contact.get(params,function (data){
      console.log(data);
      angular.forEach(data.results,function(person){
+
      	self.persons.push(new Contact(person));
+
      });
 
 
@@ -183,6 +201,16 @@ if(self.hasMore && !self.isLoading){
 self.page += 1;
 self.loadContacts();	
 }
+
+},
+
+'updateContact': function(person){
+
+	console.log("service called update");
+	self.isSaving=true;
+	person.$update().then(function(){
+		self.isSaving =false;
+	});
 
 }
 
