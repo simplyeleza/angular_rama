@@ -110,6 +110,9 @@ $scope.contacts.loadMore();
 
 $scope.showCreateModal = function() {
 
+
+$scope.contacts.selectedPerson = {};
+
 $scope.createModal = $modal ({
 
 scope:$scope,
@@ -120,6 +123,19 @@ show:true
 });
 
 };
+
+
+
+$scope.createContact =function(){
+
+console.log("create Contact ");
+
+$scope.contacts.createContact($scope.contacts.selectedPerson);
+
+};
+
+
+
 
 
 $scope.$watch('search',function(newVal,oldVal){
@@ -253,6 +269,16 @@ self.loadContacts();
 	});
 
 },
+
+
+'createContact':function(person){
+
+self.isSaving=true;
+Contact.save(person).$promise.then(function (){
+		self.isSaving =false;
+	});
+
+}
 
 
 
