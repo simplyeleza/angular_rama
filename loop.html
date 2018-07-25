@@ -40,6 +40,24 @@ margin-top: 20px;
 }
 
 
+
+
+
+.table tr td{
+ vertical-align: middle;
+}
+
+
+.table tr td img.profile-photo{
+ width:50px;
+ height:50px;
+
+}
+
+
+
+
+
 </style>
 </head >
 
@@ -118,7 +136,7 @@ margin-top: 20px;
 						<span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
 
   		</th>
-  		<th>Birthday</th>
+  		<th>Phone Number</th>
 
   	</tr>
 
@@ -127,11 +145,22 @@ margin-top: 20px;
 
   	ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
      }"
-    ng-click="contacts.selectedPerson = person"> 
-       <td>{{$index}}</td>
+    ng-click="contacts.selectedPerson = person">
+
+      <!-- <td>{{$index}}</td> -->
+       <td>
+       	<img ng-src="{{person.photo}}"
+       	     class="img-circle profile-photo" 
+       	    alt=""  />
+
+       </td>
        <td>{{person.name}}</td>
        <td>{{person.email}}</td>
-       <td>{{person.birthdate | date:"" }}</td>
+
+     <!--  <td>{{person.birthdate | date:"" }}</td> -->
+      <td>{{person.phonenumber }}</td>
+
+
      </tr> 
 
 
