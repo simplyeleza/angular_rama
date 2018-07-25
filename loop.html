@@ -17,6 +17,10 @@
 <link href="bower_components/AngularJS-Toaster/toaster.min.css"
 	      rel="stylesheet" >
 
+<link href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css"
+	      rel="stylesheet" >
+
+
 <style type="text/css">
 	
 body {
@@ -108,7 +112,9 @@ margin-top: 20px;
 			<div class="row">
 				<div class="col-md-12">
 					<form class="form-inline well well-sm" >
-				<span class="glyphicon glyphicon-search" ></span >
+				<span class="fas fa-search" ></span >
+
+				
 
 				<div class="form-group" >
 						<input type="text"
@@ -120,7 +126,7 @@ margin-top: 20px;
 				</div >
 
 
-				<span class="glyphicon glyphicon-sort-by-attributes" ></span >
+				<span class="fas fa-sort" ></span >
 
 				<div class="form-group" >
 					<select class="form-control"
@@ -148,8 +154,11 @@ margin-top: 20px;
   	  <tr>
   		<th>#</th>
   		<th>Name
+
   			<span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
 			<span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
+
+			
   		</th>
   		<th>Email
          <span ng-click="order = 'email'" class="glyphicon glyphicon-menu-up"></span>
