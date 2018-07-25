@@ -8,7 +8,9 @@ var myApp = angular.module('minmax', [
 'angularSpinner',
 'jcs-autoValidate',
 'angular-ladda',
-'mgcrea.ngStrap'
+'mgcrea.ngStrap',
+'toaster', 
+'ngAnimate'
 
 ]);
 
@@ -177,7 +179,7 @@ if (angular.isDefined(newVal)) {
    
 
 
-myApp.service('ContactService',function(Contact,$q){
+myApp.service('ContactService',function(Contact,$q,toaster){
 
 
 
@@ -260,6 +262,7 @@ self.loadContacts();
 	self.isSaving=true;
 	person.$update().then(function(){
 		self.isSaving =false;
+		toaster.pop('success','Update ' + person.name);
 	});
 
 },
@@ -275,6 +278,7 @@ self.loadContacts();
 		var index=self.persons.indexOf(person);
 		self.persons.splice(index,1);
 		self.selectedPerson=null;
+		toaster.pop('success','Deleted ' +person.name);
 	});
 
 },
@@ -292,6 +296,7 @@ Contact.save(person).$promise.then(function (){
 		self.page= 1;
 		self.persons= [];
 		self.loadContacts();
+		toaster.pop('success','Created ' +person.name);
 		d.resolve();
 	});
 return d.promise;
