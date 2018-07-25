@@ -130,7 +130,11 @@ $scope.createContact =function(){
 
 console.log("create Contact ");
 
-$scope.contacts.createContact($scope.contacts.selectedPerson);
+$scope.contacts.createContact($scope.contacts.selectedPerson)
+.then(function (){
+
+ $scope.createModal.hide();
+});
 
 };
 
@@ -168,7 +172,7 @@ if (angular.isDefined(newVal)) {
    
 
 
-myApp.service('ContactService',function(Contact){
+myApp.service('ContactService',function(Contact,$q){
 
 
 
@@ -273,10 +277,19 @@ self.loadContacts();
 
 'createContact':function(person){
 
+var d= $q.defer();
+
 self.isSaving=true;
 Contact.save(person).$promise.then(function (){
 		self.isSaving =false;
+		self.selectedPerson =null ;
+		self.hasMore = true;
+		self.page= 1;
+		self.persons= [];
+		self.loadContacts();
+		d.resolve();
 	});
+return d.promise;
 
 }
 
