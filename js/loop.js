@@ -13,7 +13,7 @@ var myApp = angular.module('minmax', [
 ]);
 
 
-myApp.config(function($httpProvider,$resourceProvider,laddaProvider){
+myApp.config(function($httpProvider,$resourceProvider,laddaProvider,$datepickerProvider){
 
 $httpProvider.defaults.headers.common['Authorization'] ='Token 19402a670db4050e0c43a3a12a40213ad818215f';
 
@@ -22,6 +22,11 @@ laddaProvider.setOption({
 style:'expand-right'
 
    });
+
+angular.extend($datepickerProvider.defaults, {
+		dateFormat: 'd/M/yyyy',
+		autoclose: true
+	});
 
 });
 
