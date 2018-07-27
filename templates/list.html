@@ -1,0 +1,62 @@
+<div class="col-md-12 " 
+       ng-controller="PersonListController">
+
+         
+
+     
+
+   <table class="table table-bordered" infinite-scroll="loadMore()" infinite-scroll-distance="1">
+
+
+     <tr>
+      <th>#</th>
+      <th>Name
+        <span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
+        <span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
+      </th>
+      <th>Email
+         <span ng-click="order = 'email'" class="glyphicon glyphicon-menu-up"></span>
+            <span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
+      </th>
+      <th>Phone Number</th>
+
+    </tr>
+
+
+    <tr ng-repeat="person in contacts.persons "
+
+         ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
+                   }"        
+         ui-sref="edit({email:person.email})"
+
+         >
+
+         <!-- <td>{{$index}}</td> -->
+       <td>
+        <img ng-src="{{person.photo | defaultImage:'images/avatar.png'}}"
+             class="img-circle profile-photo" 
+            alt=""  />
+
+       </td>
+
+       <td>
+        {{person.name}}  </td>
+       
+       <td>{{person.email}}</td>
+        <!--  <td>{{person.birthdate | date:"" }}</td> -->
+        <td>{{person.phonenumber }}</td>
+     </tr> 
+ 
+  </table>
+
+   <div ng-show="contacts.persons.length == 0 && !contacts.isLoading">         
+        <div class="alert alert-info">
+          <p class="text-center">
+            No results found for search Term '{{ search }}' 
+          </p>
+
+        </div>
+    </div>
+
+  
+   </div>  

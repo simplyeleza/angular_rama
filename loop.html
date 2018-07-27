@@ -106,143 +106,110 @@ background-color:#000000 !important;
 
 
 
+
+
+
+
 <div class="container main-content" >
 
-	<toaster-container></toaster-container>
+	<toaster-container ></toaster-container >
+<div class="row" >
 
-	<div class="row" >
-		<div class="col-md-8" 
-		      ng-controller="PersonListController">
+  <div class="col-md-6" 
+       ng-controller="PersonListController">
 
-			<div class="row">
-				<div class="col-md-12">
-					<form class="form-inline well well-sm" >
-				<span class="fas fa-search" ></span >
+         
 
-				
+          <form class="form-inline well well-sm" >
+          <span class="fas fa-search" ></span >
 
-				<div class="form-group" >
-						<input type="text"
-						       class="form-control"
-						       id="name"
-						       ng-model="search"
-						       placeholder="Search name..."
-								/>
-				</div >
+        
 
-
-				<span class="fas fa-sort" ></span >
-
-				<div class="form-group" >
-					<select class="form-control"
-									ng-model="order">
-						<option value="name" >Name (ASC)</option >
-						<option value="-name" >Name (DEC)</option >
-						<option value="email" >Email (ASC)</option >
-						<option value="-email" >Email (DEC)</option >
-					</select >
-				</div >
-
-				<button class="btn btn-primary pull-right"
-						        ng-click="showCreateModal()" >Create
-				</button >
-
-				
-
-		
-			</form >
+        <div class="form-group" >
+            <input type="text"
+                   class="form-control"
+                   id="name"
+                   ng-model="search"
+                   placeholder="Search name..."
+                />
+        </div >
 
 
-	 <table class="table table-bordered" infinite-scroll="loadMore()" infinite-scroll-distance="1">
+        <span class="fas fa-sort" ></span >
+
+        <div class="form-group" >
+          <select class="form-control"
+                  ng-model="order">
+            <option value="name" >Name (ASC)</option >
+            <option value="-name" >Name (DEC)</option >
+            <option value="email" >Email (ASC)</option >
+            <option value="-email" >Email (DEC)</option >
+          </select >
+        </div >
+
+        <button class="btn btn-primary pull-right"
+                    ng-click="showCreateModal()" >Create
+        </button >
+
+        
+
+    
+      </form >
 
 
-  	  <tr>
-  		<th>#</th>
-  		<th>Name
-
-  			<span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
-			<span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
+   <table class="table table-bordered" infinite-scroll="loadMore()" infinite-scroll-distance="1">
 
 
-  		</th>
-  		<th>Email
+     <tr>
+      <th>#</th>
+      <th>Name
+        <span ng-click="order = 'name'" class="glyphicon glyphicon-menu-up"></span>
+        <span ng-click="order = '-name'" class="glyphicon glyphicon-menu-down"></span>
+      </th>
+      <th>Email
          <span ng-click="order = 'email'" class="glyphicon glyphicon-menu-up"></span>
-						<span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
+            <span ng-click="order = '-email'" class="glyphicon glyphicon-menu-down"></span>
+      </th>
+      <th>Phone Number</th>
 
-  		</th>
-  		<th>Phone Number</th>
-
-  	</tr>
+    </tr>
 
 
-  	<tr ng-repeat="person in contacts.persons "
+    <tr ng-repeat="person in contacts.persons "
 
-  	ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
-     }"
-    ng-click="contacts.selectedPerson = person">
+         ng-style="{'background-color': person.email == contacts.selectedPerson.email ? 'lightgray' : ''
+                   }"
+         ng-click="contacts.selectedPerson = person">
 
-      <!-- <td>{{$index}}</td> -->
+         <!-- <td>{{$index}}</td> -->
        <td>
-       	<img ng-src="{{person.photo}}"
-       	     class="img-circle profile-photo" 
-       	    alt=""  />
+        <img ng-src="{{person.photo | defaultImage:'images/avatar.png'}}"
+             class="img-circle profile-photo" 
+            alt=""  />
 
        </td>
        <td>{{person.name}}</td>
        <td>{{person.email}}</td>
-
-     <!--  <td>{{person.birthdate | date:"" }}</td> -->
-      <td>{{person.phonenumber }}</td>
-
-
+        <!--  <td>{{person.birthdate | date:"" }}</td> -->
+        <td>{{person.phonenumber }}</td>
      </tr> 
-
-
-
-  	
-
-
-  	</tr>
-
-
-  	
-
-
-
-
+ 
   </table>
 
    <div ng-show="contacts.persons.length == 0 && !contacts.isLoading">         
         <div class="alert alert-info">
-        	<p class="text-center">
-        	  No results found for search Term '{{ search }}' 
-        	</p>
+          <p class="text-center">
+            No results found for search Term '{{ search }}' 
+          </p>
 
         </div>
-  	</div>
-  		
-
-
-
-
-
-    <div class="spinner"   
-         ng-show="contacts.isLoading">
-    <span us-spinner="{radius:8, width:5, length: 3,lines:9 }"></span>
-
-    <p>Loading .....</p>
     </div>
 
-				</div>
-			</div>
+	
+   </div>   <!-- End of list column  -->
 
-
-			
-		</div >
-
-
-		      <div class="col-md-4"
-           ng-controller="PersonDetailController">
+   <div class="col-md-4 "
+          ng-controller="PersonDetailController">
 
 
         <div class="panel panel-default">
@@ -254,47 +221,17 @@ background-color:#000000 !important;
 					</button >
 					<div class="clearfix" ></div >
 
-
-
         	</div>
 
-        	<div class="panel-body"> 
+           <div class="panel-body"> 
 
-<form class="form-horizontal"
+                <form class="form-horizontal"
 					      ng-submit="save()"
 					      novalidate >
 
-
-     <ng-include  src="'templates/form.html' ">  </ng-include>
+                   <ng-include  src="'templates/form.html' ">  </ng-include>
 					
-
-</form >
-
-
-
-
-               <!--
-               <dl >
-						<dt >Name</dt >
-						<dd >{{contacts.selectedPerson.name}}</dd >
-						<dt >Email</dt >
-						<dd >{{contacts.selectedPerson.email}}</dd >
-						<dt >Birthday</dt >
-						<dd >{{contacts.selectedPerson.birthdate | date:"longDate"}}</dd >
-						<dt >Phonenumber</dt >
-						<dd >{{contacts.selectedPerson.phonenumber}}</dd >
-						<dt >Address</dt >
-						<dd >{{contacts.selectedPerson.address}}</dd >
-						<dt >City</dt >
-						<dd >{{contacts.selectedPerson.city}}</dd >
-						<dt >Country</dt >
-						<dd >{{contacts.selectedPerson.country}}</dd >
-					</dl >  -->
-
-
-
-
-
+                </form >
         	</div>
         		
         </div>
@@ -302,30 +239,27 @@ background-color:#000000 !important;
 
       	<pre> {{  search }}</pre>
 
-      </div>
+     </div> <!-- End of detail column  -->
 
 
 
 
-	</div >
-
-	<div class="row">
-
-      <div class="col-md-8">
-      
-
-
-      </div>
-
-
-
-		
-	</div>
-
- 
+</div> <!-- End of row class    -->
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -362,6 +296,10 @@ background-color:#000000 !important;
 <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+
+
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 
 
