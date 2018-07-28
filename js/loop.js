@@ -96,7 +96,7 @@ myApp.directive('ccSpinner',function(){
 
 return {
 
-
+'transclude':true,
 'restrict' :'E',
 'templateUrl':'templates/spinner.html'
 
