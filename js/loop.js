@@ -113,6 +113,25 @@ return {
 
 
 
+myApp.directive('ccCard',function(){
+
+
+return {
+
+
+'restrict' :'E',
+'templateUrl':'templates/card.html',
+'scope':{
+ 'user':'='
+
+}
+}
+
+});
+
+
+
+
 
 myApp.filter('defaultImage', function () {
 

@@ -2,9 +2,22 @@
        ng-controller="PersonListController">
 
          
-
+   <div class="row"
+    infinite-scroll="loadMore()"
+    infinite-scroll-immediate-check="false"
+    infinite-scroll-distance="1"
+   >
      
 
+     <cc-card ng-repeat="person in contacts.persons"
+              user="person"> 
+
+
+     </cc-card>
+
+   </div>
+     
+<!--
    <table class="table table-bordered" infinite-scroll="loadMore()" infinite-scroll-distance="1">
 
 
@@ -31,7 +44,7 @@
 
          >
 
-         <!-- <td>{{$index}}</td> -->
+         
        <td>
         <img ng-src="{{person.photo | defaultImage:'images/avatar.png'}}"
              class="img-circle profile-photo" 
@@ -42,12 +55,16 @@
        <td>
         {{person.name}}  </td>
        
-       <td>{{person.email}}</td>
-        <!--  <td>{{person.birthdate | date:"" }}</td> -->
+     
         <td>{{person.phonenumber }}</td>
      </tr> 
  
   </table>
+
+
+
+
+-->
 
    <div ng-show="contacts.persons.length == 0 && !contacts.isLoading">         
         <div class="alert alert-info">
