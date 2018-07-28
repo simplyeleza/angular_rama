@@ -89,6 +89,25 @@ method:'PUT'
 });
 
 
+
+
+myApp.directive('ccSpinner',function(){
+
+
+return {
+
+
+'restrict' :'E',
+'templateUrl':'templates/spinner.html'
+
+}
+
+});
+
+
+
+
+
 myApp.filter('defaultImage', function () {
 
 	return function (input, param) {
