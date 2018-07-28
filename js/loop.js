@@ -122,7 +122,8 @@ return {
 'restrict' :'E',
 'templateUrl':'templates/card.html',
 'scope':{
- 'user':'='
+ 'user':'=',
+ 'deleteUser':'&'
 
 }
 }
@@ -236,6 +237,13 @@ $scope.loadMore = function(){
 console.log("Load more!!!");
 $scope.contacts.loadMore();
 
+
+};
+
+
+$scope.parentDeleteUser = function (user) {
+
+$scope.contacts.removeContact(user);
 
 };
 
