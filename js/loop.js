@@ -98,7 +98,11 @@ return {
 
 'transclude':true,
 'restrict' :'E',
-'templateUrl':'templates/spinner.html'
+'templateUrl':'templates/spinner.html',
+'scope':{
+	'isLoading':'='
+}
+
 
 }
 
