@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TUTORIAL</title>
+
+
+
+	<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+</head>
+<body>
+
+<!--
+ 
+ //this is the first program
+<div ng-app="" ng-init="firstName='Rama'">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+
+  <p>The name is <span ng-bind="firstName"></span></p>
+
+</div>
+
+-->
+
+
+<!--
+<div  ng-app="myApp" ng-controller="myCtrl">
+
+
+	First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+
+</div>
+-->
+
+
+<div ng-app="myApp"  ng-controller="myCtrl" >
+
+<input  ng-model="myCol">
+
+<p>The name is {{ person.lastName }}</p>
+
+
+<div   style="width:100px; height:100px; background-color:{{myCol}}">    </div>
+
+
+<br>
+<br>
+
+Quantity: <input type="number" ng-model="quantity">
+Costs:    <input type="number" ng-model="price">
+
+<pre> Total in dollar: {{ quantity * price }}</pre>  
+
+
+<br>
+<br>
+
+<p>Type a letter in the input field:</p>
+
+<p><input type="text" ng-model="test"></p>
+
+
+<br>
+<br>
+
+ <ul>
+    <li ng-repeat="x in names | filter:test ">
+      {{ x }}
+    </li>
+  </ul> 
+
+<br>
+<br>
+
+
+<!--
+<ul>
+    <li ng-repeat="x in names | myFormat">
+      {{ x }}
+    </li>
+  </ul>-->
+
+
+
+
+<table border="1" width="100%">
+
+  <tr>
+    <th ng-click="orderByMe('name')">Name</th>
+    <th ng-click="orderByMe('country')">Country</th>
+  </tr>
+
+  <tr ng-repeat="x in fullNames | orderBy:myOrderBy">
+    <td>{{x.name}}</td>
+    <td>{{x.country}}</td>
+  </tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+<ul>
+  <li ng-repeat="x in fullNames | orderBy:'country'">
+    {{ x.name + ' , ' + x.country }}
+  </li>
+</ul> 
+
+
+
+
+<span> {{myUrl}}</span>
+
+
+<pre>{{myWelcome}}</pre>
+
+
+
+<p>The hexadecimal value of 255 is:</p>
+
+<h1>{{hex}}</h1>
+
+
+<div rama></div>
+
+
+
+
+
+<br>
+<br>
+
+
+
+<form  name="myForm">
+
+ 
+    Enter your name:
+    <input  name="myName" ng-model="myText" required>
+
+
+</form>
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{fullName() | uppercase}}
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+<script src="js/rama.js" ></script> 
+
+</body>
+</html>
