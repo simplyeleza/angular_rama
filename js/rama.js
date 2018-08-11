@@ -15,11 +15,27 @@ app.controller('myCtrl', function($scope,$location,$http,hexafy) {
     $scope.price=5;
     $scope.myText="";
 
+    $scope.count = 0;
+
+    $scope.showMe = false;
+
+    $scope.myFunc2 = function() {
+        $scope.showMe = true;
+    };
+
     $scope.myUrl = $location.absUrl();
 
     $http.get("welcome.html").then(function(response){
 
             $scope.myWelcome =response.data;
+
+    });
+
+
+
+    $http.get("customers.php").then(function(response){
+
+        $scope.myData =response.data.records;
 
     });
 
@@ -45,6 +61,15 @@ app.controller('myCtrl', function($scope,$location,$http,hexafy) {
                         {name:'Mary',country:'England'},
                         {name:'Kai',country:'Norway'}
                        ];
+
+    
+
+
+    $scope.cars = [
+    {model : "Ford Mustang", color : "red"},
+    {model : "Fiat 500", color : "white"},
+    {model : "Volvo XC90", color : "black"}
+     ];
 
 
   $scope.orderByMe =function(x) {

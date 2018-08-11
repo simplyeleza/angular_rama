@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TUTORIAL</title>
+
+
+
+	<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+
+<div ng-app="myApp"  ng-controller="myCtrl" >
+
+
+
+
+
+<table border="1" width="100%">
+  
+  <tr>
+    <th ># </th>
+    <th >Name</th>
+    <th >Country</th>
+  </tr>
+
+
+  <tr ng-repeat="x in myData | orderBy : 'Country' ">
+    <td>{{ $index + 1 }}</td>
+    <td>{{x.Name}}</td>
+    <td>{{x.Country | uppercase}}</td>
+  </tr>
+
+
+</table>
+
+
+
+<select ng-model="selectedName" ng-options="x for x in names">
+</select>
+
+
+<select>
+<option ng-repeat="x in names">{{x}}</option>
+</select>
+
+
+<br>
+<br>
+<br>
+
+
+<select ng-model="selectedCar">
+<option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+</select>
+
+<h1>You selected: {{selectedCar}}</h1> 
+
+
+<select ng-model="selectedCar" ng-options="x.model for x in cars">
+
+
+</select>
+
+<h1>You selected: {{selectedCar.model}}</h1>
+<p>Its color is: {{selectedCar.color}}</p>  
+
+
+
+<br>
+<br>
+
+
+<br>
+
+<!--
+<h1 ng-mousemove="count = count + 1">Mouse over me!</h1>
+
+<h2>{{ count }}</h2>
+
+-->
+
+<div ng-show="showMe">
+    <h1>Menu:</h1>
+    <div>Pizza</div>
+    <div>Pasta</div>
+    <div>Pesce</div>
+</div>
+
+
+
+<button ng-click="myFunc2()">Click Me!</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+
+
+
+<script src="js/rama.js" ></script> 
+
+</body>
+</html>

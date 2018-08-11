@@ -1,0 +1,128 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TUTORIAL</title>
+
+
+
+	<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+
+<div ng-app="myApp"  ng-controller="myCtrl" >
+
+
+
+
+<form>
+  Pick a topic:
+  <input type="radio" ng-model="myVar" value="dogs">Dogs
+  <input type="radio" ng-model="myVar" value="tuts">Tutorials
+  <input type="radio" ng-model="myVar" value="cars">Cars
+</form>
+
+
+
+
+<div ng-switch="myVar">
+
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+
+
+
+
+ <form name="myForm">
+
+<p>Name:
+<input name="myName" ng-model="myName" required>
+<span ng-show="myForm.myName.$untouched && myForm.myName.$invalid">The name is required.</span>
+</p>
+
+<p>Address:
+<input name="myAddress" ng-model="myAddress" required>
+</p>
+
+</form>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!--  End of angular app and where it works -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+
+
+
+<script src="js/rama.js" ></script> 
+
+</body>
+</html>
