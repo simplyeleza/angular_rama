@@ -1,17 +1,14 @@
-var app = angular.module('myApp', [
-
-
-
-  'ui.router'
-
-  ]);
+var app = angular.module('myApp', ['ui.router']);
 
 
 
 
 app.config(function($stateProvider,$urlRouterProvider){
 
-  $urlRouterProvider.otherwise('/');
+  //$urlRouterProvider.otherwise('/');
+
+
+  $urlRouterProvider.when('', '/');
 
   $stateProvider
   .state('main',{
@@ -47,6 +44,19 @@ app.config(function($stateProvider,$urlRouterProvider){
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
