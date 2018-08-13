@@ -1,7 +1,4 @@
 
-
-
-
 var myApp = angular.module('minmax', [
 'ngResource',
 'infinite-scroll',
