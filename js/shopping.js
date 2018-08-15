@@ -9,7 +9,14 @@ app.controller("myCtrl",function($scope){
 	$scope.products =["Milk","Bread","Cheese"];
 
 	$scope.addItem =function(){
+
         $scope.errorText ="";
+        if (!$scope.addMe) {
+            console.log("Nothing inserted");
+        	return;
+
+        } 
+
         if($scope.products.indexOf($scope.addMe) == -1){
         	$scope.products.push($scope.addMe);
         } else {
