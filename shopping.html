@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+</head>
+<body>
+
+
+
+<div ng-app="myShoppingList"  ng-controller="myCtrl" >
+
+
+
+
+   
+
+   <ul>
+   	  <li  ng-repeat="product in products"  class="w3-padding-16">
+
+   	    {{product}}
+
+   	    <span ng-click="removeItem($index)" style="cursor:pointer;font-size:12pt;color:red;" >&times;</span>
+
+   	  </li>
+   </ul>
+
+
+   <input placeholder="Add shopping items here" ng-model="addMe" >
+
+   <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+
+
+   <p class="w3-text-red">{{errorText}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!--  End of angular app and where it works -->
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+
+
+
+<script src="js/shopping.js" ></script> 
+
+</body>
+</html>
