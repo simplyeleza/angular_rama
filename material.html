@@ -27,16 +27,16 @@
 <body layout="row" ng-cloak  ng-controller="mainController as vm">
 
 
+       <div ng-include="'dist/view/sidenav.html'" layout="vertical"></div>
 
-       <div flex="30" style="background-color:#009688">
-
-         Sidenav
-           
-       </div>
+      
 
        <div layout="column" flex>
-          <div style="background-color:#3949ab">Toolbar</div> 
-          <md-content flex>
+           
+           <div ng-include="'dist/view/toolbar-header.html'"></div>
+
+         
+          <md-content flex id="content">
             Main Content
 
           </md-content>          
