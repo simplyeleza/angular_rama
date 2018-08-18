@@ -1,0 +1,1 @@
+{"version":3,"file":"boot.js","sourceRoot":"","sources":["../src/boot.ts"],"names":[],"mappings":"AAAA,gCAAgC;AAGhC,IAAO,iBAAiB,CAIvB;AAJD,WAAO,iBAAiB;IACvB,OAAO,CAAC,MAAM,CAAC,mBAAmB,EAAC,CAAC,YAAY,CAAC,CAAC;SACjD,OAAO,CAAC,aAAa,EAAC,kBAAA,WAAW,CAAC;SAClC,UAAU,CAAC,gBAAgB,EAAE,kBAAA,cAAc,CAAC,CAAC;AAC/C,CAAC,EAJM,iBAAiB,KAAjB,iBAAiB,QAIvB"}

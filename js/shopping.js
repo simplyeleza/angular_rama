@@ -1,7 +1,3 @@
-
-
-
-
 var app =angular.module("myShoppingList",[]);
 
 app.controller("myCtrl",function($scope){
@@ -11,6 +7,7 @@ app.controller("myCtrl",function($scope){
 	$scope.addItem =function(){
 
         $scope.errorText ="";
+        
         if (!$scope.addMe) {
             console.log("Nothing inserted");
         	return;
