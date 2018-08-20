@@ -27,6 +27,8 @@ module ContactManagerApp {
 		
 		}
 
+
+        tabIndex: number =0;
         searchText:string ='';
 		users: User[] =[];
 		selected: User= null;
@@ -50,6 +52,9 @@ module ContactManagerApp {
 				sidenav.close();
 			
 			}
+
+
+			this.tabIndex =0;
 
 		}
 	}
