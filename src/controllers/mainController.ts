@@ -54,6 +54,8 @@ module ContactManagerApp {
 
 		message: string ="Hello From our controller";
 
+		newNote: Note = new Note('',null);
+
 
 		toggleSideNav():void {
 
@@ -107,7 +109,10 @@ module ContactManagerApp {
         controllerAs: 'ctrl',
         clickOutsideToClose:true,
         fullscreen: useFullScreen
-      }).then((user: User) => {
+      }).then((user: CreateUser) => {
+      	var newUser: User =User.fromCreate(user);
+      	self.users.push(newUser);
+      	self.selectUser(newUser);
         self.openToast("User added");
       }, () => {
         console.log('You cancelled the dialog.');
@@ -132,6 +137,15 @@ module ContactManagerApp {
 	   	  	 self.selected.notes=[];
 	   	  	 self.openToast('Cleared notes');
 	   	  })
+	   }
+
+
+
+	   addNote(){
+
+	   	this.selected.notes.push(this.newNote);
+	   	this.newNote=new Note('',null);
+	   	this.openToast("Note added");
 	   }
 
 

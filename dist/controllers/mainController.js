@@ -14,6 +14,7 @@ var ContactManagerApp;
             this.users = [];
             this.selected = null;
             this.message = "Hello From our controller";
+            this.newNote = new ContactManagerApp.Note('', null);
             var self = this;
             this.userService
                 .loadAllUsers()
@@ -60,6 +61,9 @@ var ContactManagerApp;
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             }).then(function (user) {
+                var newUser = ContactManagerApp.User.fromCreate(user);
+                self.users.push(newUser);
+                self.selectUser(newUser);
                 self.openToast("User added");
             }, function () {
                 console.log('You cancelled the dialog.');
@@ -77,6 +81,11 @@ var ContactManagerApp;
                 self.selected.notes = [];
                 self.openToast('Cleared notes');
             });
+        };
+        MainController.prototype.addNote = function () {
+            this.selected.notes.push(this.newNote);
+            this.newNote = new ContactManagerApp.Note('', null);
+            this.openToast("Note added");
         };
         MainController.prototype.removeNote = function (note) {
             var foundIndex = this.selected.notes.indexOf(note);
