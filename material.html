@@ -47,13 +47,15 @@
              <md-tabs md-dynamic-height="" 
                  md-stretch-tabs="always" 
                  md-selected="vm.tabIndex">
+
             <md-tab label="Bio">
               <div ng-include="'dist/view/tab-bio.html'"></div>           
             </md-tab>
-           <md-tab label="Notes">
-            <div ng-include="'dist/view/tab-notes.html'"></div>            
-           </md-tab>
-          </md-tabs>
+            <md-tab label="Notes">
+             <div ng-include="'dist/view/tab-notes.html'"></div>            
+            </md-tab>
+
+           </md-tabs>
 
 
 
@@ -86,6 +88,8 @@
 
      <script src="./dist/models.js"></script>
      <script src="./dist/services/userService.js"></script>
+
+     <script src="./dist/controllers/addUserDialogController.js"></script>
       
     <script src="./dist/controllers/mainController.js"></script>
     <script src="./dist/boot.js"></script>
